@@ -1,0 +1,1583 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kcalc;"
+> 
+  <!ENTITY package "kdeutils">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY commands SYSTEM "commands.docbook">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Руководство &kcalc;</title>
+
+<authorgroup>
+<author
+>&Bernd.Johannes.Wuebben; &Bernd.Johannes.Wuebben.mail; </author>
+
+<author
+>&Pamela.Roberts;&Pamela.Roberts.mail; </author>
+<author
+>&Anne-Marie.Mahfouf;&Anne-Marie.Mahfouf.mail; </author>
+<othercredit role="translator"
+><firstname
+>Олег</firstname
+> <surname
+>Баталов</surname
+> <affiliation
+><address
+><email
+>batalov@twiga.kz</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Алексей</firstname
+><surname
+>Андросов</surname
+><affiliation
+><address
+><email
+>alexey@androsov.net</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2001</year
+> <year
+>2002</year
+> <year
+>2005</year
+>	<year
+>2006</year>
+<holder
+>&Bernd.Johannes.Wuebben;, &Pamela.Roberts;, &Anne-Marie.Mahfouf;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2009-02-10</date>
+<releaseinfo
+>2.4</releaseinfo>
+
+<abstract
+><para
+>&kcalc; - научный калькулятор для &kde;</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KCalc</keyword>
+<keyword
+>калькулятор</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<para
+>Этот документ описывает &kcalc; версии 2.4.</para>
+
+<para
+>&kcalc; предоставляет больше математических функций, чем это видно на первый взгляд. В разделах этого руководства о клавиатурных акселераторах и режимах вы можете узнать о большинстве доступных функций.</para>
+
+<para
+>В дополнение к обычным функциональным возможностям, предлагаемым большинством научных калькуляторов, &kcalc; имеет много функций, которые заслуживают вашего внимания:</para>
+
+<itemizedlist>
+<listitem>
+<para
+>&kcalc; предоставляет тригонометрические функции, логические операции и статистические расчёты.</para>
+</listitem>
+<listitem>
+<para
+>&kcalc; позволяет копировать/вставлять числа с экрана.</para>
+</listitem>
+<listitem>
+<para
+>&kcalc; имеет <firstterm
+>стек результатов</firstterm
+>, который позволяет легко получать доступ к предыдущим результатам.</para>
+</listitem>
+<listitem>
+<para
+>Вы можете настроить цвета и шрифт экрана &kcalc;.</para>
+</listitem>
+<listitem>
+<para
+>Вы можете настроить точность &kcalc; и количество знаков после десятичной точки.</para>
+</listitem>
+<listitem>
+<para
+>В &kcalc; имеется большое количество <link linkend="key-accels"
+>комбинаций клавиш</link
+>, которые позволяют работать в &kcalc; без использования мыши.</para>
+<para
+>Подсказка: При нажатом <keycap
+>&Ctrl;</keycap
+> на каждой кнопке отображаются соответствующие комбинации клавиш.</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Приятной работы в &kcalc;!</para>
+
+<para
+>&Bernd.Johannes.Wuebben;</para>
+
+</chapter>
+
+
+<chapter id="usage">
+<title
+>Использование</title>
+<sect1 id="general-usage">
+<title
+>Общее использование</title>
+
+<para
+>Общие принципы использования аналогичны большинству простых научных калькуляторов, но &kcalc; имеет и следующие специальные особенности:</para>
+
+<variablelist>
+<varlistentry>
+<term
+>Стек результатов</term>
+<listitem
+><para
+>При каждом щелчке мышью на кнопке <guibutton
+>=</guibutton
+>, нажатии клавиш <keycap
+>Enter</keycap
+> или <keysym
+>=</keysym
+>, число с экрана будет записано в стек результатов &kcalc;. Вы можете перемещаться по стеку используя комбинации клавиш <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> и <keycombo action="simul"
+>&Ctrl; &Shift;<keycap
+>Z</keycap
+></keycombo
+>.</para
+> 
+</listitem>
+</varlistentry
+> 
+
+<varlistentry>
+<term
+>Процентные функции</term>
+<listitem>
+<para
+>Процентные функции работаю несколько отличным способом, чем в большинстве калькуляторов. Однако, когда они становятся понятными, усовершенствованные функциональные возможности оказываются полезными. Дополнительно об этом смотрите в разделе <link linkend="percent"
+>процентные</link
+> функции.</para>
+</listitem
+></varlistentry>
+      
+<varlistentry>
+<term
+>Копирование и вставка</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem>
+<para
+>Нажатие <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> помещает отображаемое число в буфер обмена.</para>
+</listitem>
+<listitem>
+<para
+>Нажатие <keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+>вставляет содержимое буфера обмена в экран, если это корректное число с плавающей точкой.</para>
+</listitem>
+<listitem>
+<para
+>Можно скопировать/вставить щёлкая на дисплее &kcalc;, но это может быть отключено в следующих версиях.</para>
+</listitem>
+</itemizedlist>
+</para
+></listitem
+></varlistentry>
+
+<varlistentry>
+<term
+>Дополнительные функции</term>
+<listitem>
+<para
+>При первом запуске &kcalc;, будут отображаться только кнопки основных арифметических операций.</para>
+<para
+>Через меню <guimenu
+>Параметры</guimenu
+> можно добавить дополнительные кнопки: например, кнопки для <link linkend="statistical-mode"
+>статистических</link
+> или <link linkend="trigonometric-mode"
+>научных</link
+> вычислений.</para
+> 
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Кнопки</term>
+<listitem>
+<para
+>Для быстрого доступа ко всем функциям &kcalc; многие кнопки имеют вторую раскладку. Щёлкните мышью по кнопке <guibutton
+>Inv</guibutton
+> или нажмите клавишу <keycap
+>I</keycap
+>, чтобы увидеть вторую раскладку.</para
+> 
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="statistical-mode">
+<title
+>Статистический режим</title>
+
+<para
+>В этом режиме левый столбец кнопок содержит статистические функции:</para>
+<para
+>Большинство функциональности в этом режиме сосредоточено вокруг кнопки <guibutton
+>Dat</guibutton
+>. Чтобы создать массив чисел, введите число в калькулятор и нажмите кнопку <guibutton
+>Dat</guibutton
+>. Числа на дисплее последовательно увеличиваются, показывая какую позицию занимает число в <quote
+>списке</quote
+>. Традиционный калькулятор запоминает только три значения для статистических функций: количество чисел в массиве, сумма чисел и сумма квадратов чисел. &kcalc; отличается тем, что дополнительно запоминает каждое значение, позволяя рассчитать среднее значение. </para>
+
+<informaltable
+><tgroup cols="2">
+<thead>
+<row
+><entry
+>Кнопки</entry>
+<entry
+>Функции</entry
+></row
+></thead>
+
+<tbody>
+<row
+><entry
+><guibutton
+>N</guibutton
+></entry>
+<entry
+>Выбрать номер введённого элемента данных</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Inv</guibutton
+> <guibutton
+>N</guibutton
+></entry>
+<entry
+>Отобразить сумму всех введённых элементов данных</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Mea</guibutton
+></entry>
+<entry
+>Отобразить среднее из введённых элементов данных.</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Inv</guibutton
+> <guibutton
+>Mea</guibutton
+></entry>
+<entry
+>Отобразить сумму квадрата введённых данных</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Std</guibutton
+></entry>
+<entry
+>Отобразить среднеквадратичное отклонение (n)</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Inv</guibutton
+> <guibutton
+>Std</guibutton
+></entry>
+<entry
+>Отобразить среднеквадратичное отклонение совокупности (n-1)</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Med</guibutton
+></entry>
+<entry
+>Отобразить медиану</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Dat</guibutton
+></entry>
+<entry
+>Ввод элемента данных</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Inv</guibutton
+> <guibutton
+>Dat</guibutton
+></entry>
+<entry
+>Очистить последнюю введённую запись</entry
+></row>
+
+<row
+><entry
+><guibutton
+>CSt</guibutton
+></entry>
+<entry
+>Очистить весь массив введённых данных</entry
+></row>
+
+</tbody
+></tgroup
+></informaltable>
+
+
+</sect1>
+
+<sect1 id="trigonometric-mode">
+<title
+>Тригонометрический режим</title>
+
+<para
+>В этом режиме левая колонка кнопок содержит тригонометрические функции:</para>
+
+<informaltable
+><tgroup cols="2">
+<thead>
+<row
+><entry
+>Кнопки</entry>
+<entry
+>Функции</entry
+></row>
+</thead>
+<tbody>
+<row
+><entry
+><guibutton
+>Hyp</guibutton
+></entry>
+<entry
+>Вход в гиперболический режим. Hyp Sin, например, это - гиперболический синус: sinh(x)</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Sin</guibutton
+></entry>
+<entry
+>Вычислить синус</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Inv</guibutton
+> <guibutton
+>Sin</guibutton
+></entry>
+<entry
+>Вычислить арксинус</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Cos</guibutton
+></entry>
+<entry
+>Вычислить косинус</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Inv</guibutton
+> <guibutton
+>Cos</guibutton
+></entry>
+<entry
+>Вычислить арккосинус</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Tan</guibutton
+></entry>
+<entry
+>Вычислить тангенс</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Inv</guibutton
+> <guibutton
+>Tan</guibutton
+></entry>
+<entry
+>Вычислить арктангенс</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Log</guibutton
+></entry>
+<entry
+>Вычислить десятичный логарифм</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Inv</guibutton
+> <guibutton
+>Log</guibutton
+></entry>
+<entry
+>Вычислить 10 в степени x</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Ln</guibutton
+></entry>
+<entry
+>Вычислить натуральный логарифм. Это логарифм по основанию "e".</entry
+></row>
+
+<row
+><entry
+><guibutton
+>Inv</guibutton
+> <guibutton
+>Ln</guibutton
+></entry>
+<entry
+>Вычислить e в степени x</entry
+></row>
+
+</tbody
+></tgroup
+></informaltable>
+
+</sect1>
+
+<sect1 id="memory-operations">
+<title
+>Операции в памяти</title>
+
+<para
+>&kcalc; поддерживает операции в памяти, доступные в обычных калькуляторах, и шесть дополнительных ячеек для хранения констант.</para>
+
+<sect2 id="standard_memory">
+<title
+>Стандартные операции в памяти</title>
+
+<para
+>&kcalc; может запоминать результаты операций и использовать их в дальнейших вычислениях. Вы можете получить доступ к этим функциям с помощью кнопок <guibutton
+>MR</guibutton
+>, <guibutton
+>MS</guibutton
+>, <guibutton
+>M+</guibutton
+> и <guibutton
+>MC</guibutton
+>.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guibutton
+>MS</guibutton
+></term>
+<listitem
+><para
+>Кнопка <guibutton
+>MS</guibutton
+> сохраняет текущее число в памяти.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>M+</guibutton
+></term>
+<listitem
+><para
+>Кнопка <guibutton
+>M+</guibutton
+> добавляет результат к текущему значению в памяти. Например, если у вас в памяти сохранено число 20 и текущий результат 5, то после нажатия кнопки в памяти окажется число 25. Если память пуста, то функция ведет себя как <guibutton
+>MS</guibutton
+> и просто сохраняет результат.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>MR</guibutton
+></term>
+<listitem
+><para
+>Кнопка <guibutton
+>MR</guibutton
+> возвращает значение, сохранённое в памяти, и показывает его на экране.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>MC</guibutton
+></term>
+<listitem
+><para
+>Кнопка <guibutton
+>MC</guibutton
+> очищает память.</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Если значение сохранено в памяти, в строке состояния появится надпись <guilabel
+>M</guilabel
+>, следующая за текущим режимом вычислений.</para>
+</sect2>
+
+<sect2 id="constant_buttons">
+<title
+>Константы</title>
+
+<para
+>Шесть кнопок с константами от <guibutton
+>C1</guibutton
+> до <guibutton
+>C6</guibutton
+> отображаются только после включения пункта <guilabel
+>Константы</guilabel
+> в меню <guimenu
+>Параметры</guimenu
+> панели инструментов.</para>
+
+<para
+>Чтобы сохранить текущее число в качестве одной из шести констант, нажмите кнопку <guibutton
+>Inv</guibutton
+>, а затем одну из кнопок от <guibutton
+>C1</guibutton
+> до <guibutton
+>C6</guibutton
+>.</para>
+
+<para
+>Чтобы использовать значения, сохранённые как константы, необходимо нажать соответствующую кнопку (от <guibutton
+>C1</guibutton
+> до <guibutton
+>C6</guibutton
+>), и это значение появится на экране. </para>
+
+<para
+>Возможно поменять метку константы для лучшего запоминания какая кнопка хранить какую константу. Для этого нажмите правой кнопкой мыши на соответствующей кнопке от <guibutton
+>C1</guibutton
+> до <guibutton
+> C6</guibutton
+>. В появившемся меню выберите пункт <guilabel
+>Дать имя</guilabel
+>. </para>
+
+<para
+>На любую из шести кнопок можно сохранить предопределённую постоянную (в большинстве, физическую). Для этого надо щёлкнуть правой кнопкой мыши по кнопке <guibutton
+>C1</guibutton
+> - <guibutton
+>C6</guibutton
+>, в появившемся меню выбрать пункт <guilabel
+>Выбрать из списка</guilabel
+> и выбрать требуемую постоянную. Хотя доступ к постоянным можно получить с помощью пункта <guimenu
+>Константы</guimenu
+> на панели инструментов, установка их в качестве констант, очень удобна, если они часто используются.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="key-accels">
+<title
+>Однокнопочные акселераторы</title>
+
+<para
+>Для более простого ведения расчётов с использованием клавиатуры &kcalc; поддерживает однокнопочные акселераторы для большинства функций. Например набор <userinput
+>7R</userinput
+> или <userinput
+>7r</userinput
+> вычислит обратную величину 7 (1/7).</para>
+
+<para
+>Всегда можно нажать <keycap
+>&Ctrl;</keycap
+> для просмотра доступных комбинаций клавиш прямо на кнопках.</para>
+<!-- Inv works like Caps Lock-->
+<informaltable
+><tgroup cols="3">
+<thead>
+<row
+><entry
+>Кнопка</entry>
+<entry
+>Функции</entry>
+<entry
+>Примечания</entry
+></row>
+</thead>
+<tbody>
+
+<row
+><entry
+><keycap
+>H</keycap
+></entry>
+<entry
+><guibutton
+>Hyp</guibutton
+></entry>
+<entry
+>Гиперболический, как в Hyp Sin, sinh(x)</entry
+></row>
+
+<row
+><entry
+><keycap
+>S</keycap
+></entry>
+<entry
+><guibutton
+>Sin</guibutton
+></entry>
+<entry
+></entry
+></row>
+
+<row
+><entry
+><keycap
+>C</keycap
+></entry>
+<entry
+><guibutton
+>Cos</guibutton
+></entry>
+<entry
+></entry
+></row>
+
+<row
+><entry
+><keycap
+>T</keycap
+></entry>
+<entry
+><guibutton
+>Tan</guibutton
+></entry>
+<entry
+></entry
+></row>
+
+<row
+><entry
+><keycap
+>N</keycap
+></entry>
+<entry
+><guibutton
+>Ln</guibutton
+></entry>
+<entry
+>натуральный логарифм</entry
+></row>
+
+<row
+><entry
+><keycap
+>L</keycap
+></entry>
+<entry
+><guibutton
+>Log</guibutton
+></entry>
+<entry
+>десятичный логарифм</entry
+></row>
+
+<row
+><entry
+><keycap
+>I</keycap
+></entry>
+<entry
+> <guibutton
+>Inv</guibutton
+></entry>
+<entry
+>Обратная функция, например, если вы хотите вычислить arcsin(x), наберите <userinput
+>i s </userinput
+></entry
+></row>
+
+<row
+><entry
+><keysym
+>\</keysym
+></entry>
+<entry
+><guibutton
+>+/-</guibutton
+></entry>
+<entry
+>Смена знака</entry
+></row>
+
+<row
+><entry
+><keysym
+>[</keysym
+></entry>
+<entry
+><guibutton
+>x^2</guibutton
+></entry>
+<entry
+></entry
+></row>
+
+<row
+><entry
+><keysym
+>^</keysym
+></entry>
+<entry
+><guibutton
+>x^y</guibutton
+></entry>
+<entry
+></entry
+></row>
+
+<row
+><entry
+><keysym
+>!</keysym
+></entry>
+<entry
+><guibutton
+>x!</guibutton
+></entry>
+<entry
+>Факториал</entry
+></row>
+
+<row
+><entry
+><keysym
+>&lt;</keysym
+></entry>
+<entry
+><guibutton
+>Lsh</guibutton
+></entry>
+<entry
+>Поразрядный сдвиг влево</entry
+></row>
+<!-- no "<" on Lsh key only "
+>" on Rsh key-->
+<row
+><entry
+><keysym
+>&gt;</keysym
+></entry>
+<entry
+><guibutton
+>Rsh</guibutton
+></entry>
+<entry
+>Поразрядный сдвиг вправо.</entry
+></row>
+<row
+><entry
+><keysym
+>&amp;</keysym
+></entry>
+<entry
+><guibutton
+>AND</guibutton
+></entry>
+<entry
+>Логическое И</entry
+></row>
+
+<row
+><entry
+><keysym
+>x</keysym
+> или <keysym
+>*</keysym
+></entry>
+<entry
+><guibutton
+>X</guibutton
+></entry>
+<entry
+>Умножение</entry
+></row>
+
+<row
+><entry
+><keysym
+>/</keysym
+></entry>
+<entry
+><guibutton
+>/</guibutton
+></entry>
+<entry
+>Деление</entry
+></row>
+
+<row
+><entry
+><keycap
+>D</keycap
+></entry>
+<entry
+><guibutton
+>Dat</guibutton
+></entry>
+<entry
+>Ввод записи в статистическом режиме</entry
+></row>
+
+<row
+><entry
+><keycap
+>|</keycap
+></entry>
+<entry
+><guibutton
+>OR</guibutton
+></entry>
+<entry
+>Логическое ИЛИ. Обратите внимание: <guibutton
+>Inv</guibutton
+> <guibutton
+>OR</guibutton
+> - это XOR (исключающее ИЛИ).</entry
+></row>
+
+<row
+><entry
+><keycap
+>R</keycap
+></entry>
+<entry
+><guibutton
+>1/x</guibutton
+></entry>
+<entry
+>Обратная величина</entry
+></row>
+
+<row
+><entry
+>&Enter;</entry>
+<entry
+><guibutton
+>=</guibutton
+></entry>
+<entry
+></entry
+></row>
+
+<row
+><entry
+><keycap
+>Return</keycap
+></entry>
+<entry
+><guibutton
+>=</guibutton
+></entry>
+<entry
+></entry
+></row>
+
+<row
+><entry
+><keycap
+>PgUp</keycap
+></entry>
+<entry
+><guibutton
+>C</guibutton
+></entry>
+<entry
+>Очистить</entry
+></row>
+
+<row
+><entry
+><keycap
+>Esc</keycap
+></entry>
+<entry
+><guibutton
+>C</guibutton
+></entry>
+<entry
+>Очистить</entry
+></row>
+<!--
+<row
+><entry
+><keycap
+>Prior</keycap
+></entry>
+<entry
+><guibutton
+>C</guibutton
+></entry>
+<entry
+>Clear</entry
+></row>
+-->
+<row
+><entry
+><keycap
+>PgDown</keycap
+></entry>
+<entry
+><guibutton
+>AC</guibutton
+></entry>
+<entry
+>Очистить всё</entry
+></row>
+<!--
+<row
+><entry
+><keycap
+>Next</keycap
+></entry>
+<entry
+><guibutton
+>AC</guibutton
+></entry>
+<entry
+>Clear all</entry
+></row>
+-->
+<row
+><entry
+><keycap
+>Del</keycap
+></entry>
+<entry
+><guibutton
+>AC</guibutton
+></entry>
+<entry
+>Очистить всё</entry
+></row>
+
+<row
+><entry
+>&Shift;+<keycap
+>:</keycap
+></entry>
+<entry
+><guibutton
+>Mod</guibutton
+></entry>
+<entry
+>остаток от деления</entry
+></row>
+
+<row
+><entry
+>&Alt;+<keycap
+>1</keycap
+> до &Alt;+<keycap
+>6</keycap
+></entry>
+<entry
+><guibutton
+>C1</guibutton
+></entry>
+<entry
+>используйте значения, сохранённые от C1 до C6</entry
+></row>
+
+</tbody
+></tgroup
+></informaltable>
+
+</sect1>
+</chapter>
+
+<chapter id="comments-on-specific-functions">
+<title
+>Комментарии к специфичным функциям</title>
+
+<sect1 id="mod">
+<title
+>Mod и IntDiv</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guibutton
+>Mod</guibutton
+> даёт остаток от деления числа на экране и введённого вслед за ним.</term>
+<listitem
+><para
+><userinput
+>22 Mod 8 = </userinput
+> даёт результат <emphasis
+>6</emphasis
+></para>
+<para
+><userinput
+>22.345 Mod 8 = </userinput
+> даёт результат <emphasis
+>6.345</emphasis
+></para>
+</listitem
+></varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Inv</guibutton
+> <guibutton
+>IntDiv</guibutton
+> даёт округлённый до целого остаток от деления числа на экране и введённого вслед за ним.</term>
+<listitem
+><para
+><userinput
+>22 Inv IntDiv 8 = </userinput
+> даёт результат <emphasis
+>2</emphasis
+></para>
+<para
+><userinput
+>22.345 Inv IntDiv 8 = </userinput
+> даёт также <emphasis
+>2</emphasis
+> </para
+></listitem
+></varlistentry>
+</variablelist>
+
+</sect1>
+
+
+<sect1 id="percent">
+<title
+>&percnt;</title>
+
+<para
+>Используемый вместо кнопки <guibutton
+>=</guibutton
+>, <guibutton
+>%</guibutton
+> интерпретируется как завершающая операция в потоке, вычисляется следующим образом:</para>
+
+<para
+><itemizedlist>
+<listitem>
+<para
+>Если последний оператор + или - отображает результат как процент от последнего операнда. </para>
+</listitem>
+<listitem>
+<para
+>Если последний оператор * то делит результат умножения на 100. </para>
+</listitem>
+<listitem>
+<para
+>Если последний оператор / даёт левый операнд как процент от правого. </para>
+</listitem>
+<listitem>
+<para
+>Во всех остальных случаях клавиша &percnt; даёт идентичный результат с клавишей =. </para>
+</listitem>
+</itemizedlist
+></para>
+
+<variablelist>
+<varlistentry>
+<term
+>Примеры:</term>
+<listitem>
+<para
+><userinput
+>150 + 50 %</userinput
+> даёт <emphasis
+>225</emphasis
+> (150 плюс 50 процентов от этого числа)</para>
+<para
+><userinput
+>42 * 3 %</userinput
+> даёт <emphasis
+>1.26</emphasis
+> (42 * 3 / 100)</para>
+<para
+><userinput
+>45 / 55 %</userinput
+> даёт <emphasis
+>81.81...</emphasis
+> (45 это 81.81.. процент от 55)</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="lsh-rsh">
+<title
+>Lsh и Rsh</title>
+<variablelist>
+<varlistentry>
+<term
+><guibutton
+>Lsh</guibutton
+> сдвигает влево целую часть числа на экране (умножает его на 2) n раз, где n - следующее введённое число, и возвращает целое число (основание системы счисления устанавливается кнопкой <guibutton
+>Bin</guibutton
+>)</term>
+<listitem
+><para
+><userinput
+>10 Lsh 3 =</userinput
+> даёт <emphasis
+>80</emphasis
+> (10, умноженное на 2 три раза).</para>
+<para
+><userinput
+>10.345 Lsh 3 =</userinput
+> также даёт <emphasis
+>80</emphasis
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Rsh</guibutton
+> поразрядно сдвигает вправо (выполняет целочисленное деление на 2) n раз.</term>
+<listitem
+><para
+><userinput
+>16 Rsh 2 =</userinput
+> даёт <emphasis
+>4</emphasis
+> (16 дважды делённое на 2 ).</para>
+<para
+><userinput
+>16.999 Rsh 2 =</userinput
+> также даёт <emphasis
+>4</emphasis
+>.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="and-or-xor">
+<title
+>Cmp, And, Or и Inv Or</title>
+
+<para
+>Функции <guibutton
+>Cmp</guibutton
+>, <guibutton
+>And</guibutton
+> и <guibutton
+>Or</guibutton
+> выполняют побитовые логические операции и являются более значимыми, если система счисления установлена в <guilabel
+>Hex</guilabel
+>, <guilabel
+>Oct</guilabel
+> или <guilabel
+>Bin</guilabel
+>, а не в <guilabel
+>Dec</guilabel
+>. В следующих примерах система счисления установлена в <guilabel
+>Bin</guilabel
+>.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guibutton
+>Cmp</guibutton
+> выполняет дополнение до 1 (инвертирует все биты).</term>
+<listitem
+><para
+><userinput
+>101 Cmp</userinput
+> даёт <emphasis
+>111...111010</emphasis
+></para
+> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>And</guibutton
+> - логическое И.</term>
+<listitem
+><para
+><userinput
+>101 AND 110 =</userinput
+> даёт <emphasis
+>100</emphasis
+></para
+> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>ИЛИ</guibutton
+> - логическое ИЛИ.</term>
+<listitem
+><para
+><userinput
+>101 OR 110 =</userinput
+> даёт <emphasis
+>111</emphasis
+></para
+> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>XOR</guibutton
+> выполняет операцию логическое XOR (исключающее ИЛИ).</term>
+<listitem
+><para
+><userinput
+>101 XOR 110 =</userinput
+> даёт <emphasis
+>111</emphasis
+></para
+> </listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+</chapter>
+
+
+<chapter id="questions-and-answers">
+<title
+>Вопросы и ответы</title>
+
+<qandaset>
+
+
+<qandaentry>
+<question
+><para
+>Как получить e, число Euler?</para
+></question>
+<answer
+><para
+>Наберите <userinput
+>1 Inv Ln</userinput
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Как установить два знака после запятой?</para
+></question>
+<answer
+><para
+>Выберите <menuchoice
+><guimenu
+>Параметры</guimenu
+><guimenuitem
+> Настроить &kcalc;...</guimenuitem
+></menuchoice
+> на панели инструментов, это вызовет диалог настройки. Отметьте флажок <guilabel
+>Установить фиксированную точность</guilabel
+> и укажите точность 2.</para
+></answer
+> </qandaentry>
+
+<qandaentry>
+<question
+><para
+>Что относительно точности?</para
+></question>
+<answer
+><para
+>Основной фактор, определяющий точность &kcalc; - поддерживает ли ваши libc и libmath тип данных C <type
+>long double</type
+>. Если это так, то во время компиляции &kcalc; обнаружит это и будет использовать его, как свой основной тип данных для представления чисел. </para>
+
+<para
+>Откорректируйте <guilabel
+>точность</guilabel
+> в диалоге <guibutton
+>Настройки</guibutton
+> &kcalc;, чтобы вышеупомянутые вычисления работали нормально. Я рекомендую точность в 14 разрядов, если основной тип данных вашей копии &kcalc; - это <type
+>long double</type
+>. Иначе 8 или 10.</para>
+
+<para
+>Более высокая точность не обязательно даёт лучшие результаты. Поиграйте с точностью, и вы узнаете, о чем речь.</para>
+</answer>
+</qandaentry>
+
+</qandaset>
+</chapter>
+
+&commands;
+
+<chapter id="copyright">
+<title
+>Авторы и лицензия</title>
+
+<para
+>Программа &kcalc; Copyright &copy;:</para>
+<para
+>&Bernd.Johannes.Wuebben; 1996-2000</para>
+<para
+>Команде &kde; 2000-2008</para>
+
+<itemizedlist>
+<listitem
+><para
+>&Bernd.Johannes.Wuebben; &Bernd.Johannes.Wuebben.mail;</para
+></listitem>
+<listitem
+><para
+>&Evan.Teran; &Evan.Teran.mail;</para
+></listitem>
+<listitem
+><para
+>&Espen.Sand; &Espen.Sand.mail;</para
+></listitem>
+<listitem
+><para
+>&Chris.Howells; &Chris.Howells.mail;</para
+></listitem>
+<listitem
+><para
+>&Aaron.J.Seigo; &Aaron.J.Seigo.mail;</para
+></listitem>
+<listitem
+><para
+>&Charles.Samuels; &Charles.Samuels.mail;</para
+></listitem>
+<listitem
+><para
+>&David.Johnson; &David.Johnson.mail;</para
+></listitem>
+</itemizedlist>
+
+<para
+>&kcalc; был основан на приложении <application
+>xfrmcalc</application
+>, созданном <personname
+><firstname
+>Martin</firstname
+> <surname
+>Bartlett</surname
+></personname
+>, механизм стека которого - это часть &kcalc;.</para>
+
+<para
+>Документация - Copyright &copy; 2001,2002,2005, 2006:</para>
+<itemizedlist>
+<listitem
+><para
+>&Bernd.Johannes.Wuebben; &Bernd.Johannes.Wuebben.mail;</para
+></listitem>
+<listitem
+><para
+>&Pamela.Roberts; &Pamela.Roberts.mail;</para
+></listitem>
+<listitem
+><para
+>&J.Hall; &J.Hall.mail;</para
+></listitem>
+<listitem
+><para
+>&Anne-Marie.Mahfouf;&Anne-Marie.Mahfouf.mail;</para
+></listitem>
+</itemizedlist>
+
+<para
+>Перевод на русский: Алексей Андросов<email
+>alexey@androsov.net</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Установка</title>
+
+<para
+>&kcalc; - это часть пакета kdeutils в составе &kde;, и будет устанавливаться вместе с &kde;. Подробную информацию о &kde; смотрите <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>.</para>
+
+<!--
+<para
+>&kcalc;'s home site is <ulink
+url="http://math.cornell.edu/~wuebben/kde.html">
+http://math.cornell.edu/~wuebben/kde.html</ulink
+></para>
+-->
+
+<sect1 id="compilation-and-installation">
+<title
+>Компиляция и установка</title>
+&install.intro.documentation; &install.compile.documentation; </sect1>
+
+<sect1 id="enable-long-double-precision">
+<title
+>Как установить для &kcalc; точность long double</title>
+
+<para
+>Если ваш компьютер поддерживает тип данных С <type
+>long double</type
+> и вы имеете работающую libc, можете включить точность <type
+>long double</type
+> для &kcalc;.</para>
+
+<para
+>Для этого надо сделать:</para>
+
+<procedure>
+<step>
+<para
+>Проверьте файл <filename
+>config-kcalc.h</filename
+> и найдите, определён ли HAVE&lowbar;LONG&lowbar;DOUBLE. То есть вы должны найти следующую строку:</para>
+
+<screen
+>#define HAVE_LONG_DOUBLE 1</screen>
+
+<para
+>Если этой строки там нет, ваша система не поддерживает точность long double IEEE. </para>
+</step>
+<step>
+<para
+>Измените файлы <filename class="headerfile"
+>kcalctype.h</filename
+>, <filename
+>configdlg.cpp</filename
+>, <filename
+>kcalc.cpp</filename
+> и <filename
+>kcalc&lowbar;core.cpp</filename
+> и удалите следующие строки:</para>
+
+<screen
+>#ifdef HAVE_LONG_DOUBLE
+#undef HAVE_LONG_DOUBLE
+#endif
+</screen>
+
+</step>
+<step>
+<para
+>Пересоберите &kcalc;. </para>
+</step>
+</procedure>
+
+</sect1>
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@ --with kf5
+
+execute_before_dh_lintian:
+	mkdir -p debian/.debhelper/kcalc/dbgsym-root/usr/share/lintian/overrides/
+	cp debian/kcalc-dbgsym.lintian-overrides debian/.debhelper/kcalc/dbgsym-root/usr/share/lintian/overrides/kcalc-dbgsym

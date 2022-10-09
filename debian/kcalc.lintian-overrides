@@ -1,0 +1,5 @@
+kcalc: package-name-doesnt-match-sonames libkdeinit5-kcalc
+kcalc: no-manual-page usr/bin/kcalc
+kcalc: shared-library-lacks-version usr/lib/*/libkdeinit5_kcalc.so libkdeinit5_kcalc.so
+kcalc: lacks-ldconfig-trigger usr/lib/*/libkdeinit5_kcalc.so
+kcalc: no-symbols-control-file usr/lib/*/libkdeinit5_kcalc.so

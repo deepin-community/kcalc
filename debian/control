@@ -1,0 +1,44 @@
+Source: kcalc
+Section: math
+Priority: optional
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Uploaders: Aurélien COUDERC <coucouf@debian.org>,
+           Norbert Preining <norbert@preining.info>,
+           Sune Vuorela <sune@debian.org>,
+Build-Depends: cmake (>= 3.16~),
+               debhelper-compat (= 13),
+               extra-cmake-modules (>= 5.83.0~),
+               gettext,
+               kinit-dev (>= 5.46.0~),
+               libgmp-dev,
+               libkf5config-dev (>= 5.83.0~),
+               libkf5configwidgets-dev (>= 5.83.0~),
+               libkf5coreaddons-dev (>= 5.83.0~),
+               libkf5crash-dev (>= 5.83.0~),
+               libkf5doctools-dev (>= 5.83.0~),
+               libkf5guiaddons-dev (>= 5.83.0~),
+               libkf5i18n-dev (>= 5.83.0~),
+               libkf5notifications-dev (>= 5.83.0~),
+               libkf5xmlgui-dev (>= 5.83.0~),
+               libmpfr-dev,
+               pkg-kde-tools,
+               qtbase5-dev (>= 5.15.0~),
+Standards-Version: 4.5.1
+Homepage: https://apps.kde.org/en/kcalc
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kcalc
+Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kcalc.git
+Rules-Requires-Root: no
+
+Package: kcalc
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: simple and scientific calculator
+ KCalc is a scientific calculator.
+ .
+ KCalc provides:
+  * Trigonometric functions, logic operations, and statistical calculations
+  * Calculation in decimal, hexadecimal, octal, and binary bases
+  * Memory functions for storing results
+  * A comprehensive collection of mathematical constants
+ .
+ This package is part of the KDE Utilities module.
